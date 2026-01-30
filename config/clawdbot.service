@@ -1,0 +1,17 @@
+[Unit]
+Description=Moltbot Gateway
+After=network-online.target cli-proxy-api.service
+Wants=network-online.target cli-proxy-api.service
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/clawd
+EnvironmentFile=/etc/clawdbot/env
+ExecStart=/usr/bin/clawdbot gateway run --bind loopback --port 18789
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

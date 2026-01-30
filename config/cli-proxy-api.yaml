@@ -1,0 +1,56 @@
+# CLIProxyAPIPlus config — hardened for Moltbot EC2
+# Generated API keys are injected by setup.sh at install time
+
+host: "127.0.0.1"
+port: 8317
+
+tls:
+  enable: false
+
+remote-management:
+  allow-remote: false
+  secret-key: "__MGMT_KEY__"
+  disable-control-panel: false
+
+auth-dir: "~/.cli-proxy-api"
+
+api-keys:
+  - "__API_KEY__"
+
+debug: false
+logging-to-file: true
+logs-max-total-size-mb: 100
+request-retry: 3
+max-retry-interval: 30
+ws-auth: true
+
+routing:
+  strategy: "round-robin"
+
+# Model aliases so Moltbot short names resolve to full dated names
+oauth-model-alias:
+  claude:
+    - name: "claude-sonnet-4-5-20250929"
+      alias: "claude-sonnet-4-5"
+      fork: true
+    - name: "claude-opus-4-5-20251101"
+      alias: "claude-opus-4-5"
+      fork: true
+    - name: "claude-haiku-4-5-20251001"
+      alias: "claude-haiku-4-5"
+      fork: true
+    - name: "claude-sonnet-4-20250514"
+      alias: "claude-sonnet-4"
+      fork: true
+    - name: "claude-opus-4-20250514"
+      alias: "claude-opus-4"
+      fork: true
+    - name: "claude-opus-4-1-20250805"
+      alias: "claude-opus-4-1"
+      fork: true
+    - name: "claude-3-7-sonnet-20250219"
+      alias: "claude-3-7-sonnet"
+      fork: true
+    - name: "claude-3-5-haiku-20241022"
+      alias: "claude-3-5-haiku"
+      fork: true
